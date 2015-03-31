@@ -1,0 +1,16 @@
+body{
+	background-color: #6BF9D6;
+}
+
+div.content{
+	background-color: white;
+	width: 600px;
+	margin-left: 350px;
+}
+
+div.footer{
+	background-color: white;
+	width: 600px;
+	margin-left:350px;
+}
+
