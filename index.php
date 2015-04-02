@@ -10,9 +10,36 @@
 		<div class="master">
 			<div class="content">
 				<h1>Personen</h1>
-				<?php foreach($persons as $person):?>
-				<p><?= $person['id']?>  <?= $person['name'] ?>  <?= $person['date_of_birth']?> </p>
-				<?php endforeach; ?>
+				<a href="index.php?mode=list&sort=<?=$sort?>"> List view </a> <br>
+				<a href="index.php?mode=table&sort=<?=$sort?>"> Table view </a>
+				<?php if($mode == "table"): ?>
+				<table>
+					<thead>
+					<th><a href="index.php?mode=table&sort=name&order=<?=$order?>">Name</a></th>
+					<th><a href="index.php?mode=table&sort=date&order=<?=$order?>">Date of Birth</a></th>
+					</thead>
+					<tbody>
+					<?php foreach($persons as $person): ?>
+						<tr>
+							<td><?= $person['name'] ?></td>
+							<td><?= $person['date_of_birth']?></td>
+						</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+				<?php else: ?>
+				<ul>
+					<?php foreach($persons as $person): ?>
+					<li><?= $person['name'] ?>  <?= $person['date_of_birth']?></li>
+					<?php endforeach; ?>
+				</ul>
+				<?php 
+					endif; 
+					if($mode!="table"):
+				?>
+					<a href="index.php?mode=<?=$mode?>&sort=name"> Sort by Name </a><br>
+					<a href="index.php?mode=<?=$mode?>&sort=date"> Sort by Date of Birth </a>
+				<?php endif; ?>
 			</div>
 
 			<div class="footer">
